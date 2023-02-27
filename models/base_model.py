@@ -32,7 +32,8 @@ class BaseModel():
         dict_cpy["__class__"] = type(self).__name__
         return dict_cpy
         '''
-        return {"created_at": self.created_at.isoformat(),
+        return {"id": str(uuid.uuid4()),
+                "created_at": self.created_at.isoformat(),
                 "updated_at": self.updated_at.isoformat(),
                 "__class__": type(self).__name__
                 }
