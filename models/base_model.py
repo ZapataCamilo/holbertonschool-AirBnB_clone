@@ -2,7 +2,6 @@
 '''Python AirBnB Console Project'''
 import uuid
 import datetime
-import models
 
 
 class BaseModel():
