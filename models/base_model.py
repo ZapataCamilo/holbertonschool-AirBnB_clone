@@ -25,13 +25,6 @@ class BaseModel():
     def to_dict(self):
         ''' returns a dictionary containing all\
          keys/values of __dict__ of the instance'''
-        '''
-        dict_cpy = self.__dict__.copy()
-        dict_cpy["created_add"] = self.created_at.isoformat()
-        dict_cpy["updated_add"] = self.updated_at.isoformat()
-        dict_cpy["__class__"] = type(self).__name__
-        return dict_cpy
-        '''
         return {"id": str(uuid.uuid4()),
                 "created_at": self.created_at.isoformat(),
                 "updated_at": self.updated_at.isoformat(),
