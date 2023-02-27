@@ -25,7 +25,6 @@ class BaseModel():
     def to_dict(self):
         ''' returns a dictionary containing all\
          keys/values of __dict__ of the instance'''
-        '''
         dict_cpy = self.__dict__.copy()
         dict_cpy["created_add"] = self.created_at.isoformat()
         dict_cpy["updated_add"] = self.updated_at.isoformat()
@@ -36,3 +35,4 @@ class BaseModel():
                 "updated_at": self.updated_at.isoformat(),
                 "__class__": type(self).__name__
                 }
+        '''
