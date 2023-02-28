@@ -22,7 +22,7 @@ class BaseModel():
 
     def save(self):
         '''Updates the public instance attribute'''
-        self.updated_at = BaseModel.date
+        self.updated_at = datetime.datetime.now
 
     def to_dict(self):
         ''' returns a dictionary containing all\
