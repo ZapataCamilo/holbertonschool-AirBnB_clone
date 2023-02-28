@@ -26,7 +26,7 @@ class BaseModel():
         ''' returns a dictionary containing all\
          keys/values of __dict__ of the instance'''
         return {"id": str(uuid.uuid4()),
-                "created_at": self.created_at.isoformat(),
-                "updated_at": self.updated_at.isoformat(),
+                "created_at": self.created_at.isoformat("%Y-%m-%dT%H:%M:%S.%f"),
+                "updated_at": self.updated_at.isoformat("%Y-%m-%dT%H:%M:%S.%f"),
                 "__class__": type(self).__name__
                 }
