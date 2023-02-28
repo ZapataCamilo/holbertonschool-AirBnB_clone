@@ -22,13 +22,13 @@ class BaseModel():
 
     def save(self):
         '''Updates the public instance attribute'''
-        self.updated_at = BaseModel.date
+        self.updated_at = datetime.timedelta()
 
     def to_dict(self):
         ''' returns a dictionary containing all\
          keys/values of __dict__ of the instance'''
         return {"id": str(uuid.uuid4()),
-                "created_at": self.created_at.isoformat(),
-                "updated_at": self.updated_at.isoformat(),
+                "created_at": BaseModel.date.strftime("%Y-%m-%dT%H:%M:%S.%f"),
+                "updated_at": BaseModel.date.strftime("%Y-%m-%dT%H:%M:%S.%f"),
                 "__class__": type(self).__name__
                 }
