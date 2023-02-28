@@ -18,11 +18,13 @@ class TestBaseModel(unittest.TestCase):
         '''Testing __str__ method'''
         test_base = BaseModel()
         self.assertEqual(str(test_base), f"[BaseModel] ({test_base.id}) {test_base.__dict__}")
-'''
+
     def test_to_dict(self):
+        '''Testing to_dict method'''
         test_base = BaseModel()
-        self.assertEqual()
-'''
+        test_base_dict = test_base.to_dict()
+        self.assertEqual(test_base_dict["created_at"], test_base.created_at.isoformat())
+
 
 if __name__ == "__main__":
     unittest.main()
