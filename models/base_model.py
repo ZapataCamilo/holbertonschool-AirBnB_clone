@@ -22,6 +22,7 @@ class BaseModel():
     def save(self):
         '''Updates the public instance attribute'''
         self.updated_at = BaseModel.date
+
     def to_dict(self):
         ''' returns a dictionary containing all\
          keys/values of __dict__ of the instance'''
