@@ -9,7 +9,7 @@ class BaseModel():
     date = datetime.datetime.now()
 
     def __init__(self, *args, **kwargs):
-        if kwargs:
+        if kwargs is not None:
             self.created_at = str(BaseModel.date)
             self.updated_at = str(BaseModel.date)
         else:
