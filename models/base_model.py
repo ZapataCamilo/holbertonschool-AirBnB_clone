@@ -6,7 +6,7 @@ import datetime
 
 class BaseModel():
     '''Defines all common attributes/methods for other classes'''
-    date = datetime.datetime.strftime("%Y-%m-%dT%H:%M:%S.%f")
+    date = datetime.datetime.now()
 
     def __init__(self):
         self.id = str(uuid.uuid4())
@@ -27,7 +27,7 @@ class BaseModel():
         ''' returns a dictionary containing all\
          keys/values of __dict__ of the instance'''
         return {"id": str(uuid.uuid4()),
-                "created_at": BaseModel.date,
-                "updated_at": BaseModel.date,
+                "created_at": BaseModel.date.strftime("%Y-%m-%dT%H:%M:%S.%f"),
+                "updated_at": BaseModel.date.strftime("%Y-%m-%dT%H:%M:%S.%f"),
                 "__class__": type(self).__name__
                 }
