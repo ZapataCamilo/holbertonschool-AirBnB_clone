@@ -27,7 +27,7 @@ class BaseModel():
         ''' returns a dictionary containing all\
          keys/values of __dict__ of the instance'''
         return {"id": str(uuid.uuid4()),
-                "created_at": BaseModel.date.strftime("%Y-%m-%dT%H:%M:%S.%f"),
-                "updated_at": BaseModel.date.strftime("%Y-%m-%dT%H:%M:%S.%f"),
+                "created_at": BaseModel.date.isoformat(),
+                "updated_at": BaseModel.date.isoformat(),
                 "__class__": type(self).__name__
                 }
