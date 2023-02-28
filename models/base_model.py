@@ -6,7 +6,8 @@ import datetime
 
 class BaseModel():
     '''Defines all common attributes/methods for other classes'''
-    date = datetime.datetime("%Y-%m-%dT%H:%M:%S.%f")
+    date = datetime.datetime(year=2023, month=2, day=27,
+                             hour=16, minute=26, tzinfo=None)
 
     def __init__(self):
         self.id = str(uuid.uuid4())
