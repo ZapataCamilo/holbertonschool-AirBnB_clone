@@ -16,7 +16,7 @@ class BaseModel():
 
     def __str__(self):
         '''Print a string with Class data'''
-        name = type(self).__name__
+        name = __name__
         dict = self.__dict__
         return f"[{name}] ({self.id}) {dict}"
 
