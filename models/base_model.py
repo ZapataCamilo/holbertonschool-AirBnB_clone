@@ -8,7 +8,7 @@ class BaseModel():
     '''Defines all common attributes/methods for other classes'''
     date = datetime.datetime.now()
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
         self.created_at = BaseModel.date
         self.updated_at = BaseModel.date
