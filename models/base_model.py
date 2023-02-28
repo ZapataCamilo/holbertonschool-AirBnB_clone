@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 '''Python AirBnB Console Project'''
 import uuid
-import datetime
+from datetime import datetime
 
 
 class BaseModel():
     '''Defines all common attributes/methods for other classes'''
-    date = datetime.datetime.now()
+    date = datetime.now()
 
     def __init__(self, *args, **kwargs):
         if kwargs is not None:
-            self.id = str(uuid.uuid4())
-            self.created_at = str(BaseModel.date)
-            self.updated_at = str(BaseModel.date)
+            self.id = str(uuid.uuid1())
+            self.created_at = BaseModel.date
+            self.updated_at = BaseModel.date
         else:
             self.id = str(uuid.uuid4())
             self.created_at = BaseModel.date
