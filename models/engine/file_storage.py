@@ -28,6 +28,6 @@ class FileStorage():
         ''''''
         if self.__file_path:
             with open(self.__file_path, mode="r", encoding="utf-8") as f:
-                json.load(self.__objects, f)
+                json.load(f)
         else:
             return
