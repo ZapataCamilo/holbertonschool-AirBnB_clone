@@ -22,3 +22,11 @@ class FileStorage():
         '''Serializes __objects to the JSON file'''
         with open(self.__file_path, mode="w", encoding="utf-8") as f:
             json.dump(self.__objects, f)
+
+    def reload(self):
+        ''''''
+        if self.__file_path:
+            with open(self.__file_path, mode="r", encoding="utf-8") as f:
+                json.load(self.__objects, f)
+        else:
+            return
