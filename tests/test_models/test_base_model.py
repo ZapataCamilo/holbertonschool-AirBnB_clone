@@ -25,6 +25,10 @@ class TestBaseModel(unittest.TestCase):
         test_base_dict = test_base.to_dict()
         self.assertEqual(test_base_dict["created_at"], test_base.created_at.isoformat())
 
+    def test_save(self):
+        """Testing to save method"""
+        test_base = BaseModel()
+        self.assertEqual(datetime.datetime, type(test_base.updated_at))
 
 if __name__ == "__main__":
     unittest.main()
