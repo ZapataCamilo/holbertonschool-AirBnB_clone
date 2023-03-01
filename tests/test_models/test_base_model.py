@@ -3,6 +3,7 @@
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
+from time import sleep
 
 
 class TestBaseModel(unittest.TestCase):
@@ -12,7 +13,7 @@ class TestBaseModel(unittest.TestCase):
         test_base = BaseModel()
         self.assertEqual(str, type(test_base.id))
         self.assertEqual(datetime, type(test_base.created_at))
-        '''self.assertEqual(datetime, type(test_base.updated_at))'''
+        self.assertEqual(datetime, type(test_base.updated_at))
 
     def test_str(self):
         '''Testing __str__ method'''
@@ -28,7 +29,9 @@ class TestBaseModel(unittest.TestCase):
     def test_save(self):
         """Testing to save method"""
         test_base = BaseModel()
-        self.assertEqual(datetime, type(test_base.updated_at))
+        update = test_base.updated_at
+        test_base.save()
+        self.assertNotEqual(update, test_base.updated_at)
 
 if __name__ == "__main__":
     unittest.main()
