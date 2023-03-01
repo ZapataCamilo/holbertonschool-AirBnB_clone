@@ -18,7 +18,7 @@ class FileStorage():
         ''' sets in __objects the obj with key
          <obj class name>.id'''
         obj_key = f'{obj.__class__.__name__}.{obj.id}'
-        FileStorage.__objects[obj_key] = obj
+        self.__objects[obj_key] = obj
 
     def save(self):
         '''Serializes __objects to the JSON file'''
@@ -29,10 +29,12 @@ class FileStorage():
             json.dump(dict_data, f)
 
     def reload(self):
-        ''''''
-        if self.__file_path:
-            try:
-                with open(self.__file_path, mode="r") as f:
-                    json.load(f)
-            except FileNotFoundError:
-                pass
+        '''Deserializes the JSON file to __objects'''
+        try:
+            with open(self.__file_path, mode="r") as f:
+                json_dict = json.load(f)
+                self.__objects = {}
+                for k, v in json_dict.items():
+                    self.__objects[k] = BaseModel(**v)
+        except FileNotFoundError:
+            pass
