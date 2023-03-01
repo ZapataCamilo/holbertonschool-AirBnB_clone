@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Python AirBnB Console Project'''
 import json
+from models.base_model import BaseModel
 
 
 
@@ -21,13 +22,16 @@ class FileStorage():
 
     def save(self):
         '''Serializes __objects to the JSON file'''
-        with open(self.__file_path, mode="w", encoding="utf-8") as f:
+        dict_data = {}
+        for k, v in self.__objects.items:
+            dict_data[k] = v.to_dict()
+        with open(self.__file_path, mode="w") as f:
             json.dump(self.__objects, f)
 
     def reload(self):
         ''''''
-        if self.__file_path:
-            with open(self.__file_path, mode="r", encoding="utf-8") as f:
+        try:
+            with open(self.__file_path, mode="r") as f:
                 json.load(f)
-        else:
-            return
+        except FileNotFoundError:
+            pass
