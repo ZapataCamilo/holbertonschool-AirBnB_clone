@@ -23,7 +23,6 @@ class FileStorage():
     def save(self):
         '''Serializes __objects to the JSON file'''
         dict_data = {}
-        v = BaseModel()
         for k, v in self.__objects.items():
             dict_data[k] = v.to_dict()
         with open(self.__file_path, mode="w") as f:
