@@ -2,7 +2,7 @@
 '''Creating cmd console'''
 import cmd
 from models.base_model import BaseModel
-
+class_dict = {'BaseModel': BaseModel}
 
 class HBNBCommand(cmd.Cmd):
     '''cmd console class'''
@@ -25,9 +25,12 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print('** class name missing **')
             return
-        
-        line.save()
-        print(line.id)
+        if line not in class_dict.keys():
+            print("** class doesn't exist **")
+            return
+        inst_to_create = class_dict.get(line, None)()
+        inst_to_create.save()
+        print(inst_to_create.id)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
