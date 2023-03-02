@@ -5,7 +5,7 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     '''cmd console class'''
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
     def do_quit(self, *args):
         '''write quit to exit'''
         return True
