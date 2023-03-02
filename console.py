@@ -82,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
         except KeyError:
             print('** no instance found **')
             return
-
+        storage.save()
 
 
 if __name__ == '__main__':
