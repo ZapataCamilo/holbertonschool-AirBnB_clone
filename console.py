@@ -14,5 +14,11 @@ class HBNBCommand(cmd.Cmd):
         '''write EOF to exit'''
         return True
     
+    def emptyline(self):
+        """an empty line + ENTER shouldn't execute anything"""
+        if self.lastcmd:
+            self.lastcmd = ' '
+            pass
+    
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
