@@ -2,6 +2,7 @@
 '''Python AirBnB Console Project'''
 import json
 from models.base_model import BaseModel
+from os import path
 
 
 
@@ -30,11 +31,11 @@ class FileStorage():
 
     def reload(self):
         '''Deserializes the JSON file to __objects'''
-        try:
+        if path.exists(self.__file_path):
             with open(self.__file_path, mode="r") as f:
                 json_dict = json.load(f)
                 self.__objects = {}
                 for k, v in json_dict.items():
                     self.__objects[k] = BaseModel(**v)
-        except FileNotFoundError:
+        else:
             pass
