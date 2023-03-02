@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Creating cmd console'''
 import cmd
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -18,6 +19,15 @@ class HBNBCommand(cmd.Cmd):
         """an empty line + ENTER shouldn't execute anything"""
         if self.lastcmd:
             pass
+
+    def do_create(self, line):
+        '''Creates a new instance of BaseModel'''
+        line = BaseModel()
+        if not line:
+            print('** class name missing **')
+            return
+        line.save()
+        print(line.id)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
