@@ -22,10 +22,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         '''Creates a new instance of BaseModel'''
-        line = BaseModel()
         if not line:
             print('** class name missing **')
             return
+        
         line.save()
         print(line.id)
 
