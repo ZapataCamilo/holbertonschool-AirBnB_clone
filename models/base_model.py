@@ -11,13 +11,12 @@ class BaseModel():
         from models import storage
         if kwargs:
             for k, v in kwargs.items():
-                if k == 'id':
-                    self.id = v
                 if k == 'created_at' or k == 'updated_at':
-                    self.created_at = datetime.strptime(v,
-                                                        "%Y-%m-%dT%H:%M:%S.%f")
-                    self.updated_at = datetime.strptime(v,
-                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                    self.__setattr__(k, datetime.strptime(v, 
+                                                          "%Y-%m-%dT%H:%M:%S.%f"))
+                elif k != '__class__':
+                    self.__setattr__(k ,v)
+
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
