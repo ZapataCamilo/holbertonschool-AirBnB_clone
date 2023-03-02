@@ -2,7 +2,7 @@
 '''Python AirBnB Console Project'''
 import uuid
 from datetime import datetime
-from models.__init__ import storage
+from . import storage
 
 class BaseModel():
     '''Defines all common attributes/methods for other classes'''
