@@ -33,7 +33,7 @@ class TestBaseModel(unittest.TestCase):
         test_base = BaseModel()
         update = test_base.updated_at
         test_base.save()
-        self.assertNotEqual(update, test_base.updated_at)
+        self.assertNotEqual(test_base.updated_at, update)
 
 
 if __name__ == "__main__":
