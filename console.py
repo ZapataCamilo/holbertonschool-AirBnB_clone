@@ -108,6 +108,11 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
 
+    def do_update(self, line):
+        list_update = {}
+        for k, v in all_data.items():
+            list_update[k] =  v
+        list_update['__class__'] = self.__class__.__name__
 
 
 if __name__ == '__main__':
