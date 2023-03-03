@@ -26,7 +26,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all(self):
         '''Testing all method'''
-        self.assertEqual(len(all_data), 2)
+        self.assertEqual(len(all_data), 9)
         self.assertIn(f'{type(self.test_base).__name__}.{self.test_base.id}',
                           all_data)
         self.assertIn(f'{type(self.test_user).__name__}.{self.test_user.id}',
