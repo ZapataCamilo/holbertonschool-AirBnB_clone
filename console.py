@@ -2,9 +2,11 @@
 '''Creating cmd console'''
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models.engine.file_storage import FileStorage
 from models import storage
-class_dict = {'BaseModel': BaseModel}
+class_dict = {'BaseModel': BaseModel,
+              'User': User}
 all_data = storage.all()
 
 
