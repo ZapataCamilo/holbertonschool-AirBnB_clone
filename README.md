@@ -20,16 +20,16 @@ In non-interactive mode a command must be piped.
 	$
 
 >## Commands.
-|Commands                |Description                         |
-|------------------------|-------------------------------|-----------------------------|
+|Commands              |Description                     |
+|----------------------|--------------------------------|
 |`quit`                |`Leave the console.`            |
 |`EOf`                 |`Leave the console.`            |
-|`help`                |`A little help to know how to use the command.`
-|`create <class>`      |`Creates a new instance of a given. class with a unique ID and saves it to a JSON file.`
-|`show <class> <id>`   | `Prints the string representation of a class instance.`
-|`destroy <class> <id>`| `Destroy an instance based on the class name and id`
-|`all <class>`         | `Shows us the string representation of all the instances.`
-|`update`              | `Updates the instance of the class with more attributes.` 
+|`help`                |`A little help to know how to use the command.`|
+|`create <class>`      |`Creates a new instance of a given. class with a unique ID and saves it to a JSON file.`|
+|`show <class> <id>`   | `Prints the string representation of a class instance.`|
+|`destroy <class> <id>`| `Destroy an instance based on the class name and id`|
+|`all <class>`         | `Shows us the string representation of all the instances.`|
+|`update`              | `Updates the instance of the class with more attributes.` |
 
 >## Authors.
 
