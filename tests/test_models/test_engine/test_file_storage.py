@@ -17,10 +17,10 @@ class TestFileStorage(unittest.TestCase):
         storage = FileStorage()
         self.assertIsNotNone(all_data)
         self.assertEqual(dict, type(all_data))
-        self.assertIs(all_data, storage._FileStorage__objects)
+        self.assertIs(all_data, storage._TestFileStorage__objects)
 
     def test_new(self):
-        '''Testing new mwthod'''
+        '''Testing new method'''
         storage = FileStorage()
         saitama = User()
         saitama.id = 75342
