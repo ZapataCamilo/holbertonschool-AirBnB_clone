@@ -12,10 +12,10 @@ class BaseModel():
         if kwargs:
             for k, v in kwargs.items():
                 if k == 'created_at' or k == 'updated_at':
-                    self.__setattr__(k, datetime.strptime(v, 
-                                                          "%Y-%m-%dT%H:%M:%S.%f"))
+                    self.__setattr__(k, datetime.strptime(v,
+                                    "%Y-%m-%dT%H:%M:%S.%f"))
                 elif k != '__class__':
-                    self.__setattr__(k ,v)
+                    self.__setattr__(k, v)
 
         else:
             self.id = str(uuid.uuid4())

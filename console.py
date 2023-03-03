@@ -13,6 +13,7 @@ all_data = storage.all()
 class HBNBCommand(cmd.Cmd):
     '''cmd console class'''
     prompt = '(hbnb) '
+
     def do_quit(self, *args):
         '''write quit to exit'''
         return True
@@ -20,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         '''write EOF to exit'''
         return True
-    
+
     def emptyline(self):
         """an empty line + ENTER shouldn't execute anything"""
         if self.lastcmd:
@@ -44,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print('** class name missing **')
             return
-        
+
         args = line.split()
 
         if args[0] not in class_dict.keys():
@@ -53,13 +54,13 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 2:
             print('** instance id missing **')
             return
-        
+
         obj = args[0] + '.' + args[1]
 
         for k, v in all_data.items():
             if k == obj:
                 print(v)
-                return    
+                return
         print('** no instance found **')
 
     def do_destroy(self, line):
@@ -67,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print('** class name missing **')
             return
-        
+
         args = line.split()
 
         if args[0] not in class_dict.keys():
@@ -76,7 +77,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 2:
             print('** instance id missing **')
             return
-        
+
         obj = f'{args[0]}.{args[1]}'
 
         try:
@@ -101,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             args = line.split()
             for k, v in all_data.items():
-                obj_type =k.split('.')
+                obj_type = k.split('.')
                 if obj_type[0] == args[0]:
                     new_list.append(str(v))
                     check = True
@@ -116,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print('** class name missing **')
             return
-        
+
         args = line.split()
 
         if args[0] not in class_dict.keys():
@@ -125,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 2:
             print('** instance id missing **')
             return
-        
+
         obj = f'{args[0]}.{args[1]}'
         inst_found = False
 
@@ -143,7 +144,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print('** value missing **')
             return
-        
+
         setattr(inst_found, args[2], args[3])
 
         inst_found.save()
