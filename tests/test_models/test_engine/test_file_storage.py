@@ -15,10 +15,12 @@ class TestFileStorage(unittest.TestCase):
     def setUp(self):
         '''setting instances'''
         self.test_base = BaseModel()
+        self.test_storage = FileStorage()
         self.test_user = User()
         self.filepath = 'file.json'
         self.test_base.save()
         self.test_user.save()
+
 
     def tearDown(self):
         '''Tear down the file.json'''
@@ -45,20 +47,14 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         '''Testing save method'''
-        """with open(self.filepath, mode='r') as f:
+        with open(self.filepath, mode='r') as f:
             data = json.load(f)
             test_base = BaseModel()
             self.assertEqual(len(data), 17)
             self.assertIn(f'{type(self.test_base).__name__}.{self.test_base.id}',
                           all_data)
             self.assertIn(f'{type(self.test_user).__name__}.{self.test_user.id}',
-                          all_data)"""
-        base_model_test = BaseModel()
-        self.storage_test.save()
-        self.assertTrue(os.path.exists(self.path))
-        with open(self.path) as file:
-            file_dict = json.load(file)
-        self.assertIn(base_model_test.to_dict(), file_dict.values())
+                          all_data)
 
     def test_reload(self):
         '''Testing reload method'''
@@ -66,8 +62,6 @@ class TestFileStorage(unittest.TestCase):
             obj = all_data[all_id]
         print(obj)
         self.assertIsNotNone(obj)
-        '''with self.assertRaises(TypeError):
-            storage.reload(123)'''
 
 
 if __name__ == "__main__":
