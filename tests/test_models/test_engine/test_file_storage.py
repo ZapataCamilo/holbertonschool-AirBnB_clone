@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''Testing file_storage.py'''
-"""import unittest
+import unittest
 import json
 import os
 from models.base_model import BaseModel
@@ -45,13 +45,20 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         '''Testing save method'''
-        with open(self.filepath, mode='r') as f:
+        """with open(self.filepath, mode='r') as f:
             data = json.load(f)
+            test_base = BaseModel()
             self.assertEqual(len(data), 17)
             self.assertIn(f'{type(self.test_base).__name__}.{self.test_base.id}',
                           all_data)
             self.assertIn(f'{type(self.test_user).__name__}.{self.test_user.id}',
-                          all_data)
+                          all_data)"""
+        base_model_test = BaseModel()
+        self.storage_test.save()
+        self.assertTrue(os.path.exists(self.path))
+        with open(self.path) as file:
+            file_dict = json.load(file)
+        self.assertIn(base_model_test.to_dict(), file_dict.values())
 
     def test_reload(self):
         '''Testing reload method'''
@@ -64,57 +71,4 @@ class TestFileStorage(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()"""
-
-#!/usr/bin/python3
-"""Unittest module for the class State
-"""
-import unittest
-import datetime
-import models
-from models.engine import file_storage
-from models.engine.file_storage import FileStorage
-import os
-
-
-class TestFileStorage(unittest.TestCase):
-    """methods of the test for class State
-    """
-    def test_documentation(self):
-        """this checks all the documentation
-        of all the methods of the class
-        """
-        self.assertIsNotNone(file_storage.__doc__)
-        self.assertIsNotNone(FileStorage.__doc__)
-        self.assertIsNotNone(FileStorage.all.__doc__)
-        self.assertIsNotNone(FileStorage.new.__doc__)
-        self.assertIsNotNone(FileStorage.save.__doc__)
-        self.assertIsNotNone(FileStorage.reload.__doc__)
-
-    def test_uniqueId(self):
-        """this check if the instance
-        that are created has a unique id
-        """
-        instance1 = FileStorage()
-        instance2 = FileStorage()
-        self.assertNotEqual(instance1, instance2)
-
-    def test_exec_permissions(self):
-        """Method that test for check the execution permissions
-        """
-        read = os.access('models/engine/file_storage.py', os.R_OK)
-        self.assertTrue(read)
-        write = os.access('models/engine/file_storage.py', os.W_OK)
-        self.assertTrue(write)
-        exect = os.access('models/engine/file_storage.py', os.X_OK)
-        self.assertTrue(exect)
-
-    def test_typeData(self):
-        """this method check the type of
-        the atributes when created a instance
-        """
-        instance1 = FileStorage()
-        self.assertIsInstance(instance1, FileStorage)
-
-if __name__ == '__main__':
     unittest.main()
