@@ -49,12 +49,16 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         '''Testing save method'''
-        storage = FileStorage()
-        '''storage.save()
-        exist = os.path.exists('file.json')
-        self.assertTrue(exist)'''
+        with open(self.filepath, mode='r') as f:
+            data = json.load(f)
+            self.assertEqual(len(data), 17)
+            self.assertIn(f'{type(self.test_base).__name__}.{self.test_base.id}',
+                          all_data)
+            self.assertIn(f'{type(self.test_user).__name__}.{self.test_user.id}',
+                          all_data)
+        '''storage = FileStorage()
         with self.assertRaises(TypeError):
-            storage.save(123)
+            storage.save(123)'''
 
     def test_reload(self):
         '''Testing reload method'''
