@@ -35,5 +35,6 @@ class TestBaseModel(unittest.TestCase):
         test_base.save()
         self.assertNotEqual(update, test_base.updated_at)
 
+
 if __name__ == "__main__":
     unittest.main()

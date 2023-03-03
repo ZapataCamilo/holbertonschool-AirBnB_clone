@@ -12,5 +12,6 @@ class TestState(unittest.TestCase):
         self.assertEqual(str, type(good.name))
         self.assertIsNotNone(good.name)
 
+
 if __name__ == "__main__":
     unittest.main()

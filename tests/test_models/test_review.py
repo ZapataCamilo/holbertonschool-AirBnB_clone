@@ -24,5 +24,6 @@ class TestReview(unittest.TestCase):
         self.assertEqual(str, type(rev.text))
         self.assertIsNotNone(rev.text)
 
+
 if __name__ == "__main__":
     unittest.main()

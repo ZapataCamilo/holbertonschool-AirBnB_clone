@@ -18,5 +18,6 @@ class TestCity(unittest.TestCase):
         self.assertEqual(str, type(tulsa.name))
         self.assertIsNotNone(tulsa.name)
 
+
 if __name__ == "__main__":
     unittest.main()
