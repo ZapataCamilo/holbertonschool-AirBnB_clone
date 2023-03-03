@@ -39,5 +39,11 @@ class TestFileStorage(unittest.TestCase):
         with self.assertRaises(TypeError):
             storage.save(123)
 
+    def test_reload(self):
+        '''Testing reload method'''
+        storage = FileStorage()
+        with self.assertRaises(TypeError):
+            storage.reload(123)
+
 if __name__ == "__main__":
     unittest.main()
