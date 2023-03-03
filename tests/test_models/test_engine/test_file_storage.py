@@ -41,8 +41,8 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         '''Testing reload method'''
-        storage = FileStorage()
-        for all_id in all_data.keys():
+        storage1 = FileStorage()
+        for all_id in storage1.keys():
             obj = all_data[all_id]
         print(obj)
         self.assertIsNotNone(obj)
