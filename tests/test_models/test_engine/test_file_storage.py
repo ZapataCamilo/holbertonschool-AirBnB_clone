@@ -2,6 +2,7 @@
 '''Testing file_storage.py'''
 import unittest
 import json
+import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
@@ -29,7 +30,12 @@ class TestFileStorage(unittest.TestCase):
         k = saitama.__class__.__name__ + '.' + str(saitama.id)
         self.assertIsNotNone(all_data[k])
 
-    
+    def test_save(self):
+        '''Testing save method'''
+        storage = FileStorage()
+        storage.save()
+        exist = os.path.exists('file.json')
+        self.assertTrue(exist)
 
 if __name__ == "__main__":
     unittest.main()
