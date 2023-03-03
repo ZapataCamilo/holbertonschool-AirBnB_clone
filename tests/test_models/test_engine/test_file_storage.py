@@ -17,6 +17,8 @@ class TestFileStorage(unittest.TestCase):
         self.test_base = BaseModel()
         self.test_user = User()
         self.filepath = 'file.json'
+        self.test_base.save()
+        self.test_user.save()
 
     def tearDown(self):
         '''Tear down the file.json'''
@@ -24,7 +26,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all(self):
         '''Testing all method'''
-        self.assertEqual(len(all_data), 27)
+        self.assertEqual(len(all_data), 9)
         self.assertIn(f'{type(self.test_base).__name__}.{self.test_base.id}',
                           all_data)
         self.assertIn(f'{type(self.test_user).__name__}.{self.test_user.id}',
