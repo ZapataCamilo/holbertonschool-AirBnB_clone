@@ -10,10 +10,11 @@ class FileStorage():
     deserializes JSON file to instances'''
     __file_path = "file.json"
     __objects = {}
+
     def all(self):
         '''Returns the dictionary __objects'''
         return self.__objects
-    
+
     def new(self, obj):
         ''' sets in __objects the obj with key
          <obj class name>.id'''
