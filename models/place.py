@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Python AirBnB Console Project'''
-
 from models.base_model import BaseModel
+
 
 class Place(BaseModel):
     '''inherits from BaseModel'''
