@@ -73,5 +73,6 @@ class testPlace(unittest.TestCase):
             self.assertEqual(str, type(apt.amenity_ids[i]))
         self.assertIsNotNone(apt.amenity_ids)
 
+
 if __name__ == "__main__":
     unittest.main()
