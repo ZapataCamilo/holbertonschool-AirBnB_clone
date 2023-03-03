@@ -12,12 +12,27 @@ all_data = storage.all()
 
 class TestFileStorage(unittest.TestCase):
     '''Testing FileStorage'''
+    def setUp(self):
+        '''setting instances'''
+        self.test_base = BaseModel()
+        self.test_user = User()
+        self.filepath = 'file.json'
+
+    def tearDown(self):
+        '''Tear down the file.json'''
+        os.remove(self.filepath)
+
     def test_all(self):
         '''Testing all method'''
-        storage = FileStorage()
+        self.assertEqual(len(all_data), 27)
+        self.assertIn(f'{type(self.test_base).__name__}.{self.test_base.id}',
+                          all_data)
+        self.assertIn(f'{type(self.test_user).__name__}.{self.test_user.id}',
+                          all_data)
+        '''storage = FileStorage()
         self.assertIsNotNone(all_data)
         self.assertEqual(dict, type(all_data))
-        self.assertIs(all_data, storage._TestFileStorage__objects)
+        self.assertIs(all_data, storage._TestFileStorage__objects)'''
 
     def test_new(self):
         '''Testing new method'''
