@@ -34,5 +34,5 @@ In non-interactive mode a command must be piped.
 >## Authors.
 
  - Daniel Ortiz (<a href = "https://github.com/Dannyelgeek">Dannyelgeek<a>)
- - Camilo Zapata (<a href = "https://github.com/ZapataCamilo">Milo<a>)--------
+ - Camilo Zapata (<a href = "https://github.com/ZapataCamilo">Milo<a>)
 
