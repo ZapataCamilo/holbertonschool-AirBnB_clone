@@ -55,28 +55,28 @@ button:hover {
     list-style-type: none;
     padding-left: 10%;
 }
-.list {
+.list{
     list-style-type: none;
     margin-bottom: 10%
 }
-.amenities ul {
+.amenities ul{
     padding-top: 5%;
     padding-bottom: 5%;
 }
-.amenities li {
+.amenities li{
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.locations:hover .popover {
+.locations:hover .popover{
     display: block;
     position: relative;
     z-index: 100;
 }
-.amenities:hover .popover {
+.amenities:hover .popover{
     display: block;
     position: relative;
     z-index: 100;
 }
-.popover h2 {
+.popover h2{
     font-size: 20px;
 }
